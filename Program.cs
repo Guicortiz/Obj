@@ -6,49 +6,29 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            var payment = new PaymentCard();
-            payment.pay();
+            var payment = new Payment();
             payment.Finaldate = DateTime.Now;
-            payment.CreditcardNumber = 12345678;
-
-            var paymentdoc = new PaymentDoc();
-            paymentdoc.Document = "12345678";
-            paymentdoc.pay();
+            payment.pay();
 
         }
-
+        //private, protected, internal e public
         class Payment
         {
             public DateTime Finaldate;
 
-            public virtual void pay()
+            protected void pay()
             {
 
             }
         }
 
-        class PaymentCard : Payment
+        class PaymentDocument : Payment
         {
-            public int CreditcardNumber;
-
-            public override void pay()
+            void payment()
             {
-                VerifyFoundsinCard();
-                Console.WriteLine("Creditcard payment completed");
-            }
-            void VerifyFoundsinCard() { }
-        }
+                base.pay();
 
-        class PaymentDoc : Payment
-        {
-            public string Document;
-
-            public override void pay()
-            {
-                DocumentNumber();
-                Console.WriteLine("Document payment completed");
             }
-            void DocumentNumber() { }
         }
     }
 }
