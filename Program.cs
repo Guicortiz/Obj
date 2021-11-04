@@ -1,4 +1,5 @@
 ﻿using System;
+using Payments;
 
 namespace Obj
 {
@@ -6,16 +7,9 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-
-        }
-
-        public sealed class Payment
-        {
-            public DateTime Date { get; set; }
-        }
-
-        public class PaymentDocument : Payment
-        {
+            var payment = new Payment();
+            payment.valuea = 10;
+            payment.valueb = 10;
 
         }
 
