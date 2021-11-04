@@ -6,23 +6,12 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            using (var payment = new Payment())
-            {
-                Console.WriteLine("Processing payment");
-            }
+            Payment.Date = DateTime.Now;
         }
 
-        class Payment : IDisposable
+        public static class Payment
         {
-            public Payment()
-            {
-                Console.WriteLine("Start payment");
-            }
-
-            public void Dispose()
-            {
-                Console.WriteLine("Finish payment");
-            }
+            public static DateTime Date { get; set; }
         }
 
     }
