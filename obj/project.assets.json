@@ -8,7 +8,7 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\IMP11\\.nuget\\packages\\": {}
+    "C:\\Users\\Guicortiz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,20 +16,15 @@
       "projectUniqueName": "C:\\dev\\Obj\\Obj.csproj",
       "projectName": "Obj",
       "projectPath": "C:\\dev\\Obj\\Obj.csproj",
-      "packagesPath": "C:\\Users\\IMP11\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Guicortiz\\.nuget\\packages\\",
       "outputPath": "C:\\dev\\Obj\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\IMP11\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Guicortiz\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
-      "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
