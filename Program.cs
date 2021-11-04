@@ -6,16 +6,15 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            var Customer = new Customer();
-            Customer.Name = "Guicortiz";
-            Console.WriteLine(Customer.Name);
+
         }
 
-        // Objeto(classe) é um tipo de referencia.
-        // Struct é um tipo de valor.
-        class Customer
+        // Encapsulamento 
+        class Payment
         {
-            public string Name;
+            DateTime Finaldate;
+
+            void pay() { }
         }
     }
 }
