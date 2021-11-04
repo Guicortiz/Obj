@@ -6,15 +6,20 @@ namespace Obj
     {
         static void Main(string[] args)
         {
+            var payment = new Payment();
 
         }
 
-        // Encapsulamento 
         class Payment
         {
             DateTime Finaldate;
 
-            void pay() { }
+            public void pay()
+            {
+                VerifyFoundsinCard();
+            }
+
+            private void VerifyFoundsinCard() { }
         }
     }
 }
