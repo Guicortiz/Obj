@@ -6,44 +6,41 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            var payment = new Payment();
-            payment.description = "New payment";
-            payment.Value = 10;
-            Console.WriteLine(payment.Value);
-
+            var payment = new Payment(DateTime.Now, 10);
+            Console.WriteLine("Payment: " + payment.date);
+            Console.WriteLine("Payment: " + payment.value);
 
         }
-        //private, protected, internal e public
+
         class Payment
         {
-            //prop, propg e propfull
-            DateTime Finaldate;
-
-            public string description { get; set; }
-
-            private Decimal _Value;
-            public Decimal Value
+            public Payment()
             {
-                get
-                {
-                    _Value = _Value * 2;
-                    return _Value;
-                }
-                set
-                {
-                    _Value = _Value - 2;
-                    _Value = value;
-                }
+
             }
 
+            public Payment(DateTime date, decimal value)
+            {
+                this.date = date;
+                this.value = value;
+            }
 
-            Address Billingaddress;
+            public DateTime date { get; set; }
 
+            public Decimal value { get; set; }
+            public virtual void pay(Decimal amount)
+            {
+
+            }
+            public void pay(Decimal amount, DateTime Paymentdate)
+            {
+
+            }
+            public void pay(Decimal amount, DateTime Paymentdate, decimal descount)
+            {
+
+            }
         }
 
-        public class Address
-        {
-            string zipCode;
-        }
     }
 }
