@@ -6,39 +6,22 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            var payment = new Payment(DateTime.Now, 10);
-            Console.WriteLine("Payment: " + payment.date);
-            Console.WriteLine("Payment: " + payment.value);
-
+            using (var payment = new Payment())
+            {
+                Console.WriteLine("Processing payment");
+            }
         }
 
-        class Payment
+        class Payment : IDisposable
         {
             public Payment()
             {
-
+                Console.WriteLine("Start payment");
             }
 
-            public Payment(DateTime date, decimal value)
+            public void Dispose()
             {
-                this.date = date;
-                this.value = value;
-            }
-
-            public DateTime date { get; set; }
-
-            public Decimal value { get; set; }
-            public virtual void pay(Decimal amount)
-            {
-
-            }
-            public void pay(Decimal amount, DateTime Paymentdate)
-            {
-
-            }
-            public void pay(Decimal amount, DateTime Paymentdate, decimal descount)
-            {
-
+                Console.WriteLine("Finish payment");
             }
         }
 
