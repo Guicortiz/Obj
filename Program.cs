@@ -7,13 +7,13 @@ namespace Obj
         static void Main(string[] args)
         {
             var payment = new PaymentCard();
-            payment.VerifyFoundsinCard();
+            payment.pay();
             payment.Finaldate = DateTime.Now;
             payment.CreditcardNumber = 12345678;
 
             var paymentdoc = new PaymentDoc();
             paymentdoc.Document = "12345678";
-            paymentdoc.DocumentNumber();
+            paymentdoc.pay();
 
         }
 
@@ -21,7 +21,7 @@ namespace Obj
         {
             public DateTime Finaldate;
 
-            public void pay()
+            public virtual void pay()
             {
 
             }
@@ -30,13 +30,25 @@ namespace Obj
         class PaymentCard : Payment
         {
             public int CreditcardNumber;
-            public void VerifyFoundsinCard() { }
+
+            public override void pay()
+            {
+                VerifyFoundsinCard();
+                Console.WriteLine("Creditcard payment completed");
+            }
+            void VerifyFoundsinCard() { }
         }
 
         class PaymentDoc : Payment
         {
             public string Document;
-            public void DocumentNumber() { }
+
+            public override void pay()
+            {
+                DocumentNumber();
+                Console.WriteLine("Document payment completed");
+            }
+            void DocumentNumber() { }
         }
     }
 }
