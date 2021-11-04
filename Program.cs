@@ -6,12 +6,17 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            Payment.Date = DateTime.Now;
+
         }
 
-        public static class Payment
+        public sealed class Payment
         {
-            public static DateTime Date { get; set; }
+            public DateTime Date { get; set; }
+        }
+
+        public class PaymentDocument : Payment
+        {
+
         }
 
     }
