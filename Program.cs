@@ -1,5 +1,5 @@
 ﻿using System;
-using Payments;
+
 
 namespace Obj
 {
@@ -7,11 +7,25 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            var payment = new Payment();
-            payment.valuea = 10;
-            payment.valueb = 10;
 
         }
 
+    }
+    public class Payment : IPayment
+
+    {
+        public DateTime FinalDate { get; set; }
+
+        public void Pay(double value)
+        {
+
+        }
+    }
+
+    public interface IPayment
+    {
+        DateTime FinalDate { get; set; }
+
+        void Pay(double value);
     }
 }
