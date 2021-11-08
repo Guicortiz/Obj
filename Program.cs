@@ -7,11 +7,18 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-
+            //You don't instance abstract classes.
+            var payment = new Payment();
+            var paymentdoc = new PaymentDocument();
         }
 
     }
-    public class Payment : IPayment
+
+    public class PaymentDocument : Payment
+    {
+
+    }
+    public abstract class Payment : IPayment
 
     {
         public DateTime FinalDate { get; set; }
