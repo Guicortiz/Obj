@@ -5,34 +5,24 @@ namespace Obj
 {
     class Program
     {
+        static void SetPay(double value)
+        {
+            Console.WriteLine($"Pago o valor de {value}");
+        }
+
         static void Main(string[] args)
         {
-            var person = new Person(1, "Andre Baltiere");
-            var person2 = new Person(1, "Andre Baltiere");
-
-            Console.WriteLine(person.Equals(person2));
-
+            var pay = new Payment.Pay(SetPay);
+            pay(25);
         }
 
     }
 
-    public class Person : IEquatable<Person>
+    public class Payment
     {
-        public Person(int id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public bool Equals(Person other)
-        {
-            return Id == other.Id && Name == other.Name;
-        }
+        public delegate void Pay(double value);
     }
+
 
 
 }
