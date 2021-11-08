@@ -7,33 +7,32 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            var person = new Person();
+            var person = new Person(1, "Andre Baltiere");
+            var person2 = new Person(1, "Andre Baltiere");
 
-            //upcast
-            person = new Personal();
-            person = new Corporate();
+            Console.WriteLine(person.Equals(person2));
 
-            //downcast
-            var PersonPersonal = new Personal();
-            var PersonCorporate = new Corporate();
-            PersonPersonal = (Personal)person;
-            PersonCorporate = (Corporate)person;
         }
 
     }
 
-    public class Person
+    public class Person : IEquatable<Person>
     {
+        public Person(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public int Id { get; set; }
+
         public string Name { get; set; }
+
+        public bool Equals(Person other)
+        {
+            return Id == other.Id && Name == other.Name;
+        }
     }
 
-    public class Personal : Person
-    {
-        public string Cpf { get; set; }
-    }
 
-    public class Corporate : Person
-    {
-        public string CNPJ { get; set; }
-    }
 }
