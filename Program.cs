@@ -5,52 +5,28 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            var room = new Room(3);
-            room.RoomSoldOutEvent += OnRoomSoldOut;
-            room.ReserveSeat();
-            room.ReserveSeat();
-            room.ReserveSeat();
-            room.ReserveSeat();
-            room.ReserveSeat();
+            var person = new Person();
+            var subscription = new Subscription();
+            var context = new DataContext<Person>();
+            var context2 = new DataContext<Payment>();
+            context.Save(person);
+            context.Save(subscription);
         }
 
-        static void OnRoomSoldOut(object sender, EventArgs e)
-        {
-            Console.WriteLine("Room is already full");
-        }
     }
 
-    public class Room
+    public class DataContext<T>
+    where T : Person
     {
-        public int Seats { get; set; }
-
-        public Room(int seats)
+        public void Save(T entity)
         {
-            Seats = seats;
-            seatsInUse = 0;
-        }
 
-        private int seatsInUse = 0;
-
-        public void ReserveSeat()
-        {
-            seatsInUse++;
-            if (seatsInUse >= Seats)
-            {
-                OnRoomSoldOut(EventArgs.Empty);
-            }
-            else
-            {
-                Console.WriteLine("Seat reserved");
-            }
-        }
-
-        public event EventHandler RoomSoldOutEvent;
-
-        protected virtual void OnRoomSoldOut(EventArgs e)
-        {
-            EventHandler handler = RoomSoldOutEvent;
-            handler?.Invoke(this, e);
         }
     }
+
+    public class Person { }
+
+    public class Payment { }
+
+    public class Subscription { }
 }
