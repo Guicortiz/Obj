@@ -7,32 +7,33 @@ namespace Obj
     {
         static void Main(string[] args)
         {
-            //You don't instance abstract classes.
-            var payment = new Payment();
-            var paymentdoc = new PaymentDocument();
+            var person = new Person();
+
+            //upcast
+            person = new Personal();
+            person = new Corporate();
+
+            //downcast
+            var PersonPersonal = new Personal();
+            var PersonCorporate = new Corporate();
+            PersonPersonal = (Personal)person;
+            PersonCorporate = (Corporate)person;
         }
 
     }
 
-    public class PaymentDocument : Payment
+    public class Person
     {
-
-    }
-    public abstract class Payment : IPayment
-
-    {
-        public DateTime FinalDate { get; set; }
-
-        public void Pay(double value)
-        {
-
-        }
+        public string Name { get; set; }
     }
 
-    public interface IPayment
+    public class Personal : Person
     {
-        DateTime FinalDate { get; set; }
+        public string Cpf { get; set; }
+    }
 
-        void Pay(double value);
+    public class Corporate : Person
+    {
+        public string CNPJ { get; set; }
     }
 }
